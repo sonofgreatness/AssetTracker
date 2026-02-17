@@ -1,0 +1,112 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.4.0">
+  <diagram name="Page-1" id="5f0bae14-7c28-e335-631c-24af17079c00">
+    <mxGraphModel dx="2526" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="39150e848f15840c-1" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="Block" vertex="1">
+          <mxGeometry height="280" width="340" x="120" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-2" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="Block" vertex="1">
+          <mxGeometry height="220" width="330" x="590" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-3" parent="1" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12" value="Block" vertex="1">
+          <mxGeometry height="460" width="640" x="440" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-4" parent="1" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="«interface»&lt;br&gt;&lt;b&gt;VehicleI&lt;/b&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="160" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-5" parent="1" style="shape=component;align=left;spacingLeft=36;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;html=1;" value="ModuleA" vertex="1">
+          <mxGeometry height="60" width="120" x="310" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="360" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-7" parent="1" style="shape=component;align=left;spacingLeft=36;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;html=1;" value="ModuleB" vertex="1">
+          <mxGeometry height="60" width="120" x="620" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-8" parent="1" style="html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="«interface»&lt;br&gt;&lt;b&gt;DeedsI&lt;/b&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="790" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;align=center;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="620" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-10" parent="1" style="shape=component;align=left;spacingLeft=36;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;html=1;" value="ReportMaker" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="1275" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-11" edge="1" parent="1" source="39150e848f15840c-10" style="edgeStyle=none;rounded=0;html=1;dashed=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=open;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;" target="39150e848f15840c-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-12" edge="1" parent="1" source="39150e848f15840c-3" style="edgeStyle=none;rounded=0;html=1;dashed=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=open;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;" target="39150e848f15840c-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-13" edge="1" parent="1" source="39150e848f15840c-9" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=none;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;" target="39150e848f15840c-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-14" edge="1" parent="1" source="39150e848f15840c-6" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=none;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;" target="39150e848f15840c-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-15" edge="1" parent="1" source="39150e848f15840c-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=open;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;dashed=1;" target="39150e848f15840c-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="220" />
+              <mxPoint x="215" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="39150e848f15840c-16" edge="1" parent="1" source="39150e848f15840c-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=open;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;" target="39150e848f15840c-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39150e848f15840c-17" edge="1" parent="1" source="39150e848f15840c-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=none;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="475" />
+              <mxPoint x="825" y="475" />
+            </Array>
+            <mxPoint x="780" y="1210" as="sourcePoint" />
+            <mxPoint x="825" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="39150e848f15840c-18" edge="1" parent="1" source="39150e848f15840c-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=none;startArrow=none;startFill=0;startSize=8;endArrow=none;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;" target="39150e848f15840c-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="1290" />
+              <mxPoint x="340" y="1050" />
+              <mxPoint x="285" y="1050" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-1" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="ModuleA&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;fun loadVehicleData() : List&amp;lt;Vehicle&amp;gt;&lt;/div&gt;&lt;div&gt;fun loadSearchTerms(searchTerms: SearchTermsDto): List&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div&gt;fun filterVehicles(searchTerms : List&amp;lt;String&amp;gt;) : List&amp;lt;Vehicle&amp;gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="535" width="660" x="-600" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-2" parent="1" style="shape=component;align=left;spacingLeft=36;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fontFamily=Verdana;fontSize=12;html=1;" value="ModuleB&amp;nbsp;&lt;div&gt;&lt;span style=&quot;font-family: Helvetica; text-align: center; text-wrap-mode: wrap;&quot;&gt;ModuleA&lt;/span&gt;&lt;div style=&quot;font-family: Helvetica; text-align: center; text-wrap-mode: wrap;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;font-family: Helvetica; text-align: center; text-wrap-mode: wrap;&quot;&gt;fun loadDeedsData() : List&amp;lt;Deed&amp;gt;&lt;/div&gt;&lt;div style=&quot;font-family: Helvetica; text-align: center; text-wrap-mode: wrap;&quot;&gt;fun loadSearchTerms(searchTerms: SearchTermsDto): List&amp;lt;String&amp;gt;&lt;/div&gt;&lt;div style=&quot;font-family: Helvetica; text-align: center; text-wrap-mode: wrap;&quot;&gt;fun filterVehicles(searchTerms : List&amp;lt;String&amp;gt;) : List&amp;lt;Deed&amp;gt;&lt;/div&gt;&lt;div style=&quot;font-family: Helvetica; text-align: center; text-wrap-mode: wrap;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="310" width="380" x="1030" y="327.5" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-4" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun getVehicles():List&amp;lt;Vehicle&amp;gt;&amp;nbsp;&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="220" x="490" y="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-5" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun getDeeds():List&amp;lt;Deed&amp;gt;&amp;nbsp;&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="220" x="490" y="1406" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-6" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun printBannerPDF()&amp;nbsp;" vertex="1">
+          <mxGeometry height="26" width="220" x="490" y="1432" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-7" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun printBannerExcel()&lt;div&gt;&lt;br&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="26" width="220" x="490" y="1457" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-8" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun printBannerWord&lt;div&gt;&lt;br&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="26" width="220" x="490" y="1483" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-9" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun writeReport(outputFormat:enum)&lt;div&gt;&lt;br&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="31" width="220" x="490" y="1509" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-10" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun previewReport()&lt;div&gt;&lt;br&gt;&lt;div&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="31" width="220" x="490" y="1530" as="geometry" />
+        </mxCell>
+        <mxCell id="zVoO4cSYxiuPCsEqGi1l-11" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="fun storeCurrentReportData(vehicles, deeds)&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;div&gt;fun exportReport()&amp;nbsp; &amp;nbsp;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="31" width="220" x="490" y="1561" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
