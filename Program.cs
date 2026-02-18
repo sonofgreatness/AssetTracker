@@ -1,7 +1,13 @@
+using AssetLocater.Domain.Repositories.Implementations;
+using AssetLocater.Domain.Repositories.Interfaces;
+using AssetLocater.Domain.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IFileRepository, SqliteFileRepository>();
+builder.Services.AddScoped<FileService>();
 
 var app = builder.Build();
 

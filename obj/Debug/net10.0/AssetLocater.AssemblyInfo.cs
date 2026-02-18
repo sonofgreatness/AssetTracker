@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AssetLocater")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6461ef7f9d949ed66b7c1422961af4ec7562efe")]
 [assembly: System.Reflection.AssemblyProductAttribute("AssetLocater")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AssetLocater")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
