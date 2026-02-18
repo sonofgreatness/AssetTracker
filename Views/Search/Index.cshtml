@@ -1,0 +1,60 @@
+﻿@model AssetLocater.Domain.Models.SearchTerms
+
+@{
+    ViewData["Title"] = "Asset Search";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h2 class="mb-4 text-center">Asset Search</h2>
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    Please provide at least one search field.
+                </div>
+            }
+
+            <form asp-action="Index" method="post" class="card shadow-sm p-4">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NationalID" class="form-label">
+                        National ID
+                    </label>
+                    <input asp-for="NationalID" class="form-control"
+                           placeholder="Enter National ID" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">
+                        Full Name
+                    </label>
+                    <input asp-for="FullName" class="form-control"
+                           placeholder="Enter full name" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CompanyName" class="form-label">
+                        Company Name
+                    </label>
+                    <input asp-for="CompanyName" class="form-control"
+                           placeholder="Enter company name" />
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        Search
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
