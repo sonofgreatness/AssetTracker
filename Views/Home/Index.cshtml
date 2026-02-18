@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <main role="main" class="pb-4">
+
+        <!-- Hero / Intro -->
+        <div class="text-center mb-5">
+            <h1 class="display-6 fw-bold">Asset Locator</h1>
+            <p class="lead text-muted">
+                Search vehicles and deeds records using National ID, Company Name, or Full Name,
+                then generate and export detailed reports.
+            </p>
+        </div>
+
+        <!-- Feature Steps -->
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">1. Specify Search Terms</h5>
+                        <p class="card-text">
+                            Search across Vehicles and Deeds using:
+                        </p>
+                        <ul class="small">
+                            <li>National ID</li>
+                            <li>Company Name</li>
+                            <li>Individual Full Name</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">2. Preview Report</h5>
+                        <p class="card-text">
+                            Instantly preview matched records before committing
+                            them to a final report.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">3. Store Results</h5>
+                        <p class="card-text">
+                            Save search results securely for later access,
+                            auditing, or comparison.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">4. Export Report</h5>
+                        <p class="card-text">
+                            Export reports in multiple formats:
+                        </p>
+                        <ul class="small">
+                            <li>PDF</li>
+                            <li>Excel</li>
+                            <li>CSV</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="row mb-5">
+            <div class="col text-center">
+                <a asp-controller="Search" asp-action="Index" class="btn btn-primary btn-lg me-2">
+                    Start New Search
+                </a>
+                <a asp-controller="Reports" asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                    View Saved Reports
+                </a>
+            </div>
+        </div>
+
+        <!-- Data Source Downloads -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Search Data Sources</h5>
+                <p class="card-text text-muted">
+                    Download the CSV files currently used for searches.
+                </p>
+
+                <div class="d-flex gap-3">
+                    <a asp-controller="Files"
+                       asp-action="DownloadVehicles"
+                       class="btn btn-outline-primary">
+                        Download Vehicles CSV
+                    </a>
+
+                    <a asp-controller="Files"
+                       asp-action="DownloadDeeds"
+                       class="btn btn-outline-primary">
+                        Download Deeds CSV
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MVC Views Render Here -->
+
+
+    </main>
+</div>
+
