@@ -17,26 +17,25 @@ namespace AssetLocater.Controllers
 
         // UPLOAD
         [HttpPost]
+        [RequestSizeLimit(100 * 1024 * 1024)]
+        [RequestFormLimits(MultipartBodyLengthLimit = 100 * 1024 * 1024)]
         public async Task<IActionResult> Upload(IFormFile file, string fileType)
         {
             if (file == null || file.Length == 0)
                 return RedirectToAction(nameof(Landing));
 
-            using var ms = new MemoryStream();
+            await using var ms = new MemoryStream((int)file.Length);
             await file.CopyToAsync(ms);
 
             var storedFile = new StoredFile
             {
-                Name = file.FileName,
+                Name = file.FileName.Trim(),
                 FileType = fileType,
                 Content = ms.ToArray(),
                 ContentType = file.ContentType
             };
 
-            var x = 5 + 5;
             await _fileService.InsertAsync(storedFile);
-            var y = x + 5;
-             
             return RedirectToAction(nameof(Landing));
         }
 

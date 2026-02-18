@@ -1,156 +1,55 @@
 ﻿
-using AssetLocater.Domain.Repositories.Interfaces;
 using AssetLocater.Domain.Models;
-using Microsoft.Data.Sqlite;
+using AssetLocater.Domain.Persistence;
+using AssetLocater.Domain.Repositories.Interfaces;
 
+using Microsoft.EntityFrameworkCore;
 namespace AssetLocater.Domain.Repositories.Implementations
 {
 
-    public class SqliteFileRepository : IFileRepository
+    public class SqliteFileRepository(FileDbContext context) : IFileRepository
     {
-        private readonly string _connectionString;
-
-        public SqliteFileRepository()
+        private readonly FileDbContext _context = context;
+        public async Task<List<StoredFile>> GetAllAsync()
         {
-            var basePath = AppContext.BaseDirectory;
-            var dataDir = Path.Combine(basePath, "data");
-
-            if (!Directory.Exists(dataDir))
-                Directory.CreateDirectory(dataDir);
-
-            var dbPath = Path.Combine(dataDir, "assetlocator.db");
-
-            _connectionString = $"Data Source={dbPath};Cache=Shared";
+            return await _context.Files
+                .AsNoTracking()
+                .OrderByDescending(f => f.CreatedAt)
+                .Select(f => new StoredFile
+                {
+                    Id = f.Id,
+                    Name = f.Name,
+                    FileType = f.FileType,
+                    ContentType = f.ContentType,
+                    CreatedAt = f.CreatedAt
+                })
+                .ToListAsync();
         }
-
-        // -----------------------------
-        // Connection bootstrap helpers
-        // -----------------------------
-
-        private async Task<SqliteConnection> OpenConnectionAsync()
-        {
-            var conn = new SqliteConnection(_connectionString);
-            await conn.OpenAsync();
-
-            // Enable WAL for concurrency
-            using (var walCmd = conn.CreateCommand())
-            {
-                walCmd.CommandText = "PRAGMA journal_mode=WAL;";
-                await walCmd.ExecuteNonQueryAsync();
-            }
-
-            // Ensure schema exists
-            using (var schemaCmd = conn.CreateCommand())
-            {
-                schemaCmd.CommandText = """
-                    CREATE TABLE IF NOT EXISTS Files (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL,
-                        FileType TEXT NOT NULL,
-                        Content BLOB NOT NULL,
-                        ContentType TEXT NOT NULL,
-                        CreatedAt TEXT NOT NULL
-                    );
-                """;
-                await schemaCmd.ExecuteNonQueryAsync();
-            }
-
-            return conn;
-        }
-
-        // -----------------------------
-        // Repository methods
-        // -----------------------------
-
         public async Task<StoredFile?> GetLatestByTypeAsync(string fileType)
         {
-            using var conn = await OpenConnectionAsync();
-
-            using var cmd = conn.CreateCommand();
-            cmd.CommandText = """
-                SELECT Id, Name, FileType, Content, ContentType
-                FROM Files
-                WHERE FileType = @type
-                ORDER BY CreatedAt DESC
-                LIMIT 1
-            """;
-            cmd.Parameters.AddWithValue("@type", fileType);
-
-            using var reader = await cmd.ExecuteReaderAsync();
-            if (!reader.Read())
-                return null;
-
-            return new StoredFile
-            {
-                Id = reader.GetInt32(0),
-                Name = reader.GetString(1),
-                FileType = reader.GetString(2),
-                Content = (byte[])reader["Content"],
-                ContentType = reader.GetString(4)
-            };
+            return await _context.Files
+                .AsNoTracking()
+                .Where(f => f.FileType == fileType)
+                .OrderByDescending(f => f.CreatedAt)
+                .FirstOrDefaultAsync();
         }
 
         public async Task InsertAsync(StoredFile file)
         {
-            using var conn = await OpenConnectionAsync();
-
-            using var cmd = conn.CreateCommand();
-            cmd.CommandText = """
-                INSERT INTO Files (Name, FileType, Content, ContentType, CreatedAt)
-                VALUES (@name, @type, @content, @contentType, datetime('now'))
-            """;
-
-            cmd.Parameters.AddWithValue("@name", file.Name);
-            cmd.Parameters.AddWithValue("@type", file.FileType);
-            cmd.Parameters.AddWithValue("@content", file.Content);
-            cmd.Parameters.AddWithValue("@contentType", file.ContentType);
-
-            await cmd.ExecuteNonQueryAsync();
+            file.CreatedAt = DateTime.UtcNow;
+            _context.Files.Add(file);
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            using var conn = await OpenConnectionAsync();
+            var entity = await _context.Files.FindAsync(id);
+            if (entity == null) return;
 
-            using var cmd = conn.CreateCommand();
-            cmd.CommandText = "DELETE FROM Files WHERE Id = @id";
-            cmd.Parameters.AddWithValue("@id", id);
-
-            await cmd.ExecuteNonQueryAsync();
-        }
-
-
-
-
-
-
-        public async Task<List<StoredFile>> GetAllAsync()
-        {
-            using var conn = await OpenConnectionAsync();
-
-            using var cmd = conn.CreateCommand();
-            cmd.CommandText = """
-        SELECT Id, Name, FileType, ContentType, CreatedAt
-        FROM Files
-        ORDER BY CreatedAt DESC
-    """;
-
-            using var reader = await cmd.ExecuteReaderAsync();
-            var result = new List<StoredFile>();
-
-            while (reader.Read())
-            {
-                result.Add(new StoredFile
-                {
-                    Id = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    FileType = reader.GetString(2),
-                    ContentType = reader.GetString(3),
-                    CreatedAt = reader.GetString(4)
-                });
-            }
-
-            return result;
+            _context.Files.Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
+
+
 }
