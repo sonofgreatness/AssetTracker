@@ -27,8 +27,12 @@
                     <label asp-for="NationalID" class="form-label">
                         National ID
                     </label>
-                    <input asp-for="NationalID" class="form-control"
-                           placeholder="Enter National ID" />
+                    <input asp-for="NationalID"
+                           class="form-control"
+                           maxlength="13"
+                           inputmode="numeric"
+                           pattern="[0-9]*"
+                           placeholder="Enter 13-digit National ID" />
                 </div>
 
                 <div class="mb-3">

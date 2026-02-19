@@ -58,10 +58,6 @@ namespace AssetLocater.Domain.Persistence
 
                 context.SaveChanges();
             }
-
-
         }
-
-
     }
 }

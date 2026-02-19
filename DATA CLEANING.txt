@@ -1,0 +1,103 @@
+DATA CLEANING 
+-- 
+-DELETE  COLUMN 3 , 
+-DELETE COLUMN 7, 
+=================================================
+PROCESSING 
+-return type 
+ Model(
+oldNumberplate:Column1, 
+newNumberplate:Column2, 
+description:Column3, 
+chasis:Column4,
+specialNumber: Column5, 
+someOtherSpecialNumber: Column6, 
+nationalId : column7, 
+Name :column8, 
+tel:column9 
+cell:10, 
+physicalAddress : column11+column12  
+)
+
+
+
+MAIN PROCESSING:
+ Only  1 fields specified : 
+ 1A , -nationalID  match by case (13 character num string ) : use column 7 
+
+1B, -Full name use space to separate name into  search terms  , then  any combination of the search terms is a match i.e Sibusiso Zulu = Zulu Sibusiso (case Insensitive search )
+: use column8, 
+
+1C - company name : treat whole text as single search term find  matching combination  up to  at least 80% score  i.e  if search term   (abcde) then abcd  should  be a  positive match, 
+
+
+
+2 fields 
+if fields are company name  and fullname  
+
+ first   run 1C , save results ,  then run 1B save second results  too 
+   return (1C.1B) Joined list 
+
+
+ 
+if fields are company name and national ID 
+     first run  1A save results 
+        then run    1C save results 
+ 
+   return list of 1A, list of 1C 
+     and list of 1A intersect 1C 
+
+if fields are  full name and nationalID 
+     first run  1A save results 
+        then run    1B save results 
+ 
+   return list of 1A, list of 1B 
+     and list of 1A intersect 1B 
+
+
+3 fields 
+   run 1A save results ,  
+   run 1B save results 
+   run 1C save sresults 
+  return list of 1A , 
+     list of 1B, 
+     list 1C , 
+ list of 1A intersect 1B , 
+list of 1B intersect 1C, 
+list  of 1A intersect  1C , 
+list of 1A intersect 1B intersect 1C . 
+
+
+
+
+
+
+
+
+
+
+
+	
+     
+
+ 
+
+
+
+
+
+     
+
+
+
+
+ 
+   
+
+
+
+
+ 
+
+
+  

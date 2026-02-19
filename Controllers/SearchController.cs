@@ -1,4 +1,5 @@
 ﻿using AssetLocater.Domain.Models;
+using AssetLocater.Domain.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,7 +10,13 @@ namespace AssetLocater.Controllers
 
         public class SearchController : Controller
         {
-            [HttpGet]
+
+
+        private readonly IVehicleSearchEngine _searchEngine;
+        private readonly SearchResultStore _resultStore;
+
+
+        [HttpGet]
             public IActionResult Index()
             {
                 return View(new SearchTerms());
@@ -29,8 +36,34 @@ namespace AssetLocater.Controllers
               
                 return View(model);
             }
-            // 🔍 Perform search later
-            return View(model);
-            }
+            return View("Processor", model);
+        }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Processor(SearchTerms model)
+        {
+            var result = _searchEngine.Execute(model);
+            var key = _resultStore.Store(result);
+
+            return RedirectToAction("Preview", new { key });
+        }
+
+        [HttpGet]
+        public IActionResult Preview(string key)
+        {
+            var result = _resultStore.Get(key);
+            if (result == null) return NotFound();
+
+            return View(result);
+        }
+
+
+
     }
+
 }

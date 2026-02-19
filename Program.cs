@@ -1,3 +1,4 @@
+using AssetLocater.Domain.Models;
 using AssetLocater.Domain.Persistence;
 using AssetLocater.Domain.Repositories.Implementations;
 using AssetLocater.Domain.Repositories.Interfaces;
@@ -36,6 +37,12 @@ builder.Services.AddAuthentication("AuthCookie")
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<AuthService>();
+builder.Services.AddSingleton<VehicleIndex>();
+builder.Services.AddSingleton<IVehicleSearchEngine, VehicleSearchEngine>();
+builder.Services.AddHostedService<VehicleIndexHostedService>();
+
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 

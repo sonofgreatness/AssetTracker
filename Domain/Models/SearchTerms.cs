@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace AssetLocater.Domain.Models
 {
@@ -7,7 +8,12 @@ namespace AssetLocater.Domain.Models
         [Key]
         public int Id { get; set; }
 
+        [StringLength(13, MinimumLength = 13,
+            ErrorMessage = "National ID must be exactly 13 digits long.")]
+        [RegularExpression(@"^\d+$",
+            ErrorMessage = "National ID must contain only numbers.")]
         public string? NationalID { get; set; }
+
         public string? FullName { get; set; }
         public string? CompanyName { get; set; }
 
