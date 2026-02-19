@@ -1,9 +1,11 @@
 ﻿using AssetLocater.Domain.Models;
 using AssetLocater.Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssetLocater.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController(FileService fileService) : Controller
     {
         private readonly FileService _fileService = fileService;

@@ -1,7 +1,6 @@
 ﻿using AssetLocater.Domain.Models;
-using AssetLocater.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+
 
 
 namespace AssetLocater.Controllers
@@ -30,8 +29,6 @@ namespace AssetLocater.Controllers
               
                 return View(model);
             }
-
-
             // 🔍 Perform search later
             return View(model);
             }

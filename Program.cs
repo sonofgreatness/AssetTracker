@@ -23,8 +23,19 @@ builder.Services.AddScoped<FileService>();
 builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 120 * 1024 * 1024;
-}); 
+});
 
+
+builder.Services.AddAuthentication("AuthCookie")
+    .AddCookie("AuthCookie", options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/Denied";
+    });
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddScoped<AuthService>();
 var app = builder.Build();
 
 
@@ -46,6 +57,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
